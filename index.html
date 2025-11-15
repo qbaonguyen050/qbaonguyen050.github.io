@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini-3 News Hub | Today's Top Updates</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .header {
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, #ff6b6b, #ffd93d);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+        }
+        
+        h1 {
+            color: white;
+            font-size: 24px;
+            font-weight: 600;
+        }
+        
+        .date-time {
+            color: #ffd93d;
+            font-weight: 500;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        
+        .breaking-news {
+            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+        
+        .post {
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .post:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+        }
+        
+        .post-header {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin-right: 12px;
+        }
+        
+        .post-meta {
+            flex: 1;
+        }
+        
+        .username {
+            font-weight: 600;
+            color: #333;
+            text-decoration: none;
+        }
+        
+        .username:hover {
+            color: #667eea;
+        }
+        
+        .post-time {
+            color: #666;
+            font-size: 12px;
+        }
+        
+        .tag {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            margin-left: 10px;
+        }
+        
+        .post-content {
+            padding: 20px;
+        }
+        
+        .post-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+        
+        .post-description {
+            color: #444;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .post-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .post-link {
+            display: inline-block;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 10px;
+        }
+        
+        .post-link:hover {
+            text-decoration: underline;
+        }
+        
+        .post-footer {
+            padding: 15px;
+            background: #f8f9fa;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .engagement {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .engagement-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #666;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .engagement-item:hover {
+            color: #667eea;
+        }
+        
+        .comments-section {
+            padding: 15px;
+            background: #f0f0f0;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .comment {
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        
+        .comment-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        .comment-avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #764ba2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 10px;
+            margin-right: 8px;
+        }
+        
+        .comment-username {
+            font-weight: 600;
+            font-size: 13px;
+            color: #333;
+            margin-right: 8px;
+        }
+        
+        .comment-time {
+            color: #999;
+            font-size: 11px;
+        }
+        
+        .comment-text {
+            font-size: 14px;
+            color: #444;
+            line-height: 1.4;
+        }
+        
+        .load-more {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .load-more-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.3s;
+        }
+        
+        .load-more-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .status-developing {
+            background: #ff9800;
+            color: white;
+        }
+
+        .status-breaking {
+            background: #f44336;
+            color: white;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50%, 100% { opacity: 1; }
+            25%, 75% { opacity: 0.7; }
+        }
+
+        .floating-sidebar {
+            position: fixed;
+            right: 20px;
+            top: 100px;
+            width: 300px;
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        @media (max-width: 1400px) {
+            .floating-sidebar {
+                display: none;
+            }
+        }
+
+        .trending-topics h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .trending-item {
+            padding: 10px 0;
+            border-bottom: 1px solid #e0e0e0;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .trending-item:hover {
+            background: #f5f5f5;
+        }
+
+        .trending-number {
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">G3</div>
+                <h1>Gemini-3 News Hub</h1>
+            </div>
+            <div class="date-time">November 15, 2025 | LIVE UPDATES</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="breaking-news">
+            <strong>🔥 BREAKING:</strong> Google appears to be executing a stealth deployment of Gemini 3.0 to mobile users through the Canvas feature, marking one of the most significant AI model updates of 2025. Unlike typical product launches with fanfare and official announcements, this rollout seems to be happening quietly.<!--citation:1-->
+        </div>
+
+        <!-- Post 1: Silent Rollout Discovery -->
+        <div class="post">
+            <div class="post-header">
+                <div class="user-avatar">AR</div>
+                <div class="post-meta">
+                    <a href="#" class="username">AIResearcher_2025</a>
+                    <span class="post-time">2 days ago</span>
+                    <span class="tag">BREAKING</span>
+                    <span class="status-badge status-breaking">HOT</span>
+                </div>
+            </div>
+            <div class="post-content">
+                <h2 class="post-title">Gemini 3.0 Quietly Rolling Out on Mobile Canvas - Users Report Dramatic Improvements!</h2>
+                <p class="post-description">
+                    Users of the Gemini mobile app began noticing dramatically improved outputs when using the Canvas feature. Despite the interface still displaying "Gemini 2.5 Pro," the quality of generated content—particularly SVG animations and web design—showed capabilities far beyond what the previous model could achieve.<!--citation:1-->
+                </p>
+                <div class="image-placeholder">📱</div>
+                <p class="post-description">
+                    A particularly impressive demonstration featured a fully functional 3D tank game created in a single prompt—something users claimed no other model had successfully accomplished.<!--citation:1--> Reddit user Initial-Plenty2326 compiled extensive evidence from multiple sources, documenting what appears to be a coordinated shadow release across both iOS and Android platforms.<!--citation:1-->
+                </p>
+                <a href="https://www.androidsage.com/2025/11/13/google-gemini-3-rollout/" class="post-link" target="_blank">Read Full Story →</a>
+            </div>
+            <div class="post-footer">
+                <div class="engagement">
+                    <div class="engagement-item">👍 3.2k</div>
+                    <div class="engagement-item">💬 487</div>
+                    <div class="engagement-item">🔄 1.1k</div>
+                </div>
+            </div>
+            <div class="comments-section">
+                <div class="comment">
+                    <div class="comment-header">
+                        <div class="comment-avatar">TD</div>
+                        <span class="comment-username">TechDev_Mike</span>
+                        <span class="comment-time">1 hour ago</span>
+                    </div>
+                    <p class="comment-text">Just tested it on my Pixel - the Canvas feature is INSANE! Generated a complete React app with animations on first try. This is definitely not 2.5 Pro anymore!</p>
+                </div>
+                <div class="comment">
+                    <div class="comment-header">
+                        <div class="comment-avatar">SC</div>
+                        <span class="comment-username">SkepticalCoder</span>
+                        <span class="comment-time">45 min ago</span>
+                    </div>
+                    <p class="comment-text">Multiple users reported achieving exceptional results on first attempts (zero-shot prompts). Interestingly, there's speculation that requesting revisions might switch the conversation back to 2.5 Pro, suggesting the model allocation system may be prompt-dependent.<!--citation:1--></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Post 2: Official Confirmation & Timeline -->
+        <div class="post">
+            <div class="post-header">
+                <div class="user-avatar">GN</div>
+                <div class="post-meta">
+                    <a href="#" class="username">GoogleNewsDaily</a>
+                    <span class="post-time">3 weeks ago</span>
+                    <span class="tag">OFFICIAL</span>
+                    <span class="status-badge status-developing">DEVELOPING</span>
+                </div>
+            </div>
+            <div class="post-content">
+                <h2 class="post-title">CEO Sundar Pichai Confirms: Gemini 3.0 Coming Late 2025</h2>
+                <p class="post-description">
+                    At Dreamforce conference in San Francisco, Google CEO Sundar Pichai officially confirmed that Gemini 3.0 will release this year. This marks the first official acknowledgment of the model's existence and timeline.<!--citation:2-->
+                </p>
+                <div class="image-placeholder">🎯</div>
+                <p class="post-description">
+                    Pichai described Gemini 3.0 as "an even more powerful AI agent, which has made even more noticeable progress than in recent years."<!--citation:2--> Based on Google's historical release patterns, Sundar Pichai's confirmation, and industry insider information, Gemini 3.0 is expected to arrive in late Q4 2025.<!--citation:2-->
+                </p>
+                <a href="https://xole.ai/technology/gemini-3" class="post-link" target="_blank">Full Technical Analysis →</a>
+            </div>
+            <div class="post-footer">
+                <div class="engagement">
+                    <div class="engagement-item">👍 5.4k</div>
+                    <div class="engagement-item">💬 892</div>
+                    <div class="engagement-item">🔄 2.3k</div>
+                </div>
+            </div>
+            <div class="comments-section">
+                <div class="comment">
+                    <div class="comment-header">
+                        <div class="comment-avatar">AI</div>
+                        <span class="comment-username">AIEnthusiast99</span>
+                        <span class="comment-time">2 hours ago</span>
+                    </div>
+                    <p class="comment-text">Finally! Official confirmation! The wait has been killing me. Late Q4 means December most likely?</p>
+                </div>
+                <div class="comment">
+                    <div class="comment-header">
+                        <div class="comment-avatar">DS</div>
+                        <span class="comment-username">DataScientist_Pro</span>
+                        <span class="comment-time">1 hour ago</span>
+                    </div>
+                    <p class="comment-text">The model features advanced reasoning, 1-million token context, enhanced multimodal processing, and intelligent agent capabilities.<!--citation:2--> This is going to be a game-changer for long document processing!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Post 3: Technical Preview Discovery -->
+        <div class="post">
+            <div class="post-header">
+                <div class="user-avatar">TC</div>
+                <div class="post-meta">
+                    <a href="#" class="username">TechCrunchLeaks</a>
+                    <span class="post-time">1 week ago</span>
+                    <span class="tag">LEAK</span>
+                </div>
+            </div>
+            <div class="post-content">
+                <h2 class="post-title">Gemini 3 Pro Preview Spotted in Vertex AI - November Release Imminent!</h2>
+                <p class="post-description">
+                    Google's Gemini 3 Pro preview model has now appeared in VertexAI code, pointing to a launch window that aligns with earlier rumors of a November reveal. The preview is labeled "11-2025," strongly indicating it will become accessible to select users within this month, while a broader release is likely scheduled for December.<!--citation:3-->
+                </p>
+                <div class="image-placeholder">💻</div>
+                <p class="post-description">
+                    For developers and enterprise teams already building with VertexAI, the Gemini 3 Pro preview means early access to Google's next flagship multimodal model, potentially featuring a 1 million token context window, maintaining the scale set by previous Gemini iterations.<!--citation:3-->
+                </p>
+                <a href="https://www.testingcatalog.com/google-plans-to-release-gemini-3-pro-preview-in-november/" class="post-link" target="_blank">Developer Details →</a>
+            </div>
+            <div class="post-footer">
+                <div class="engagement">
+                    <div class="engagement-item">👍 2.8k</div>
+                    <div class="engagement-item">💬 345</div>
+                    <div class="engagement-item">🔄 876</div>
+                </div>
+            </div>
+            <div class="comments-section">
+                <div class="comment">
+                    <div class="comment-header">
+                        <div class="comment-avatar">DE</div>
+                        <span class="comment-username">DevExplorer</span>
+                        <span class="comment-time">4 hours ago</span>
+                    </div>
+                    <p class="comment-text">1 million token context window is HUGE! That's like processing entire books in one go. Can't wait to test this!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Post 4: Release Delay Analysis -->
+        <div class="post">
+            <div class="post-header">
+                <div class="user-avatar">GG</div>
+                <div class="post-meta">
+                    <a href="#" class="username">GeekyGadgets</a>
+                    <span class="post-time">2 days ago</span>
+                    <span class="tag">ANALYSIS</span>
+                </div>
+            </div>
+            <div class="post-content">
+                <h2 class="post-title">Where Is Gemini 3? Google's Mysterious Silence Sparks AI Community Frustration</h2>
+                <p class="post-description">
+                    It's the question reverberating through the AI community, sparking frustration, speculation, and no small amount of intrigue. For months, Google has kept silent about the release of its highly anticipated Gemini 3 model, leaving developers and enterprises in a state of limbo.<!--citation:4-->
+                </p>
+                <p class="post-description">
+                    Meanwhile, competitors like OpenAI and Anthropic have surged ahead, setting new benchmarks with GPT-4 and Claude 3, respectively.<!--citation:4--> The stakes couldn't be higher for Google, whose reputation as an AI leader now hinges on whether Gemini 3 can deliver a new leap, or risk being labeled a misstep.<!--citation:4-->
+                </p>
+                <a href="https://www.geeky-gadgets.com/google-gemini-3-release-delay/" class="post-link" target="_blank">Read Full Analysis →</a>
+            </div>
+            <div class="post-footer">
+                <div class="engagement">
+                    <div class="engagement-item">👍 1.9k</div>
+                    <div class="engagement-item">💬 234</div>
+                    <div class="engagement-item">🔄 567</div>
+                </div>
+            </div>
+            <div class="comments-section">
+                <div class="comment">
+                    <div class="comment-header">
+                        <div class="comment-avatar">CS</div>
+                        <span class="comment-username">CompetitiveSphere</span>
+                        <span class="comment-time">3 hours ago</span>
+                    </div>
+                    <p class="comment-text">Google needs to move fast. OpenAI and Anthropic aren't waiting around. The AI race is heating up!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Post 5: Expected Features -->
+        <div class="post">
+            <div class="post-header">
+                <div class="user-avatar">SK</div>
+                <div class="post-meta">
+                    <a href="#" class="username">SkyworkAI</a>
+                    <span class="post-time">3 weeks ago</span>
+                    <span class="tag">FEATURES</span>
+                </div>
+            </div>
+            <div class="post-content">
+                <h2 class="post-title">Gemini 3.0 Expected Features: SVG Generation 30% Better, Mini Web Systems from Scratch!</h2>
+                <p class="post-description">
+                    Rumors swing between early October and December. What's it bringing? SVG generation that outperforms competitors by 30%+, and AI that can basically build mini web systems from scratch.<!--citation:5-->
+                </p>
+                <div class="image-placeholder">🚀</div>
+                <p class="post-description">
+                    It can count six fingers in an image without error, for example—something Gemini 2 fumbled 15% of the time. It also aces complex tests like ARC-AGI-2, hitting nearly 35% accuracy when competitors stay below 20%.<!--citation:5-->
+                </p>
+                <p class="post-description">
+                    Google's new Trillium TPU chips power this leap, and the specs back up the hype. Each chip hits 512 TOPS of AI Computility —4x more than the TPU v5e. They're also 67% more energy efficient, which matters because big AI models guzzle power.<!--citation:5-->
+                </p>
+                <a href="https://skywork.ai/blog/news/gemini-3-release-date-expectations-2025-late-q4-launch/" class="post-link" target="_blank">Technical Deep Dive →</a>
+            </div>
+            <div class="post-footer">
+                <div class="engagement">
+                    <div class="engagement-item">👍 4.1k</div>
+                    <div class="engagement-item">💬 623</div>
+                    <div class="engagement-item">🔄 1.8k</div>
+                </div>
+            </div>
+            <div class="comments-section">
+                <div class="comment">
+                    <div class="comment-header">
+                        <div class="comment-avatar">WD</div>
+                        <span class="comment-username">WebDeveloper2025</span>
+                        <span class="comment-time">5 hours ago</span>
+                    </div>
+                    <p class="comment-text">SVG generation 30% better? That's exactly what we need for modern web development. Can't wait!</p>
+                </div>
+                <div class="comment">
+                    <div class="comment-header">
+                        <div class="comment-avatar">EE</div>
+                        <span class="comment-username">EnergyEfficient</span>
+                        <span class="comment-time">2 hours ago</span>
+                    </div>
+                    <p class="comment-text">67% more energy efficient is huge news! Finally, AI that doesn't destroy the planet while being powerful.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Post 6: Nano Banana 2 Connection -->
+        <div class="post">
+            <div class="post-header">
+                <div class="user-avatar">BP</div>
+                <div class="post-meta">
+                    <a href="#" class="username">BleepingComputer</a>
+                    <span class="post-time">1 week ago</span>
+                    <span class="tag">UPDATE</span>
+                </div>
+            </div>
+            <div class="post-content">
+                <h2 class="post-title">Leak: Gemini 3 Pro AND Nano Banana 2 Image Generator Coming Together!</h2>
+                <p class="post-description">
+                    Early leaks suggest that Gemini 3 will begin rolling out in November with a 1 million context limit. At the moment, Google's latest AI model is Gemini 2.5 Pro, and it's about 8 months old, but it still remains one of the best models in the market.<!--citation:6-->
+                </p>
+                <p class="post-description">
+                    In addition to Gemini 3, Google is testing Nano Banana 2, codenamed "GEMPIX2". This could mean that the model, which could be one of the best for generating AI images, will begin shipping as early as December 2025.<!--citation:6-->
+                </p>
+                <a href="https://www.bleepingcomputer.com/news/artificial-intelligence/leak-confirms-google-gemini-3-pro-and-nano-banana-2-could-launch-soon/" class="post-link" target="_blank">Security Analysis →</a>
+            </div>
+            <div class="post-footer">
+                <div class="engagement">
+                    <div class="engagement-item">👍 2.3k</div>
+                    <div class="engagement-item">💬 412</div>
+                    <div class="engagement-item">🔄 890</div>
+                </div>
+            </div>
+            <div class="comments-section">
+                <div class="comment">
+                    <div class="comment-header">
+                        <div class="comment-avatar">IG</div>
+                        <span class="comment-username">ImageGen_Artist</span>
+                        <span class="comment-time">6 hours ago</span>
+                    </div>
+                    <p class="comment-text">Nano Banana 2 sounds amazing! If it's anything like the improvements we're seeing in Canvas, this will revolutionize AI art generation.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="load-more">
+            <button class="load-more-btn">Load More Updates</button>
+        </div>
+    </div>
+
+    <div class="floating-sidebar">
+        <div class="trending-topics">
+            <h3>🔥 Trending Now</h3>
+            <div class="trending-item">
+                <span class="trending-number">#1</span>
+                Gemini 3.0 Silent Rollout
+            </div>
+            <div class="trending-item">
+                <span class="trending-number">#2</span>
+                Canvas Feature Updates
+            </div>
+            <div class="trending-item">
+                <span class="trending-number">#3</span>
+                1M Token Context Window
+            </div>
+            <div class="trending-item">
+                <span class="trending-number">#4</span>
+                Nano Banana 2.0
+            </div>
+            <div class="trending-item">
+                <span class="trending-number">#5</span>
+                GPT-5 vs Gemini 3
+            </div>
+            <div class="trending-item">
+                <span class="trending-number">#6</span>
+                Vertex AI Preview
+            </div>
+            <div class="trending-item">
+                <span class="trending-number">#7</span>
+                Late Q4 2025 Release
+            </div>
+            <div class="trending-item">
+                <span class="trending-number">#8</span>
+                Mobile App Testing
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simulate real-time updates
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) + ' | LIVE UPDATES';
+            document.querySelector('.date-time').textContent = timeString;
+        }
+        
+        updateTime();
+        setInterval(updateTime, 60000);
+
+        // Engagement interactions
+        document.querySelectorAll('.engagement-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const currentValue = this.textContent;
+                const match = currentValue.match(/(\d+\.?\d*k?)/);
+                if (match) {
+                    let number = parseFloat(match[1].replace('k', ''));
+                    if (match[1].includes('k')) {
+                        number *= 1000;
+                    }
+                    number++;
+                    
+                    if (number >= 1000) {
+                        this.textContent = currentValue.replace(/\d+\.?\d*k?/, (number / 1000).toFixed(1) + 'k');
+                    } else {
+                        this.textContent = currentValue.replace(/\d+\.?\d*k?/, number);
+                    }
+                    
+                    this.style.color = '#667eea';
+                }
+            });
+        });
+
+        // Load more functionality
+        document.querySelector('.load-more-btn').addEventListener('click', function() {
+            this.textContent = 'Loading...';
+            setTimeout(() => {
+                this.textContent = 'No more updates';
+                this.disabled = true;
+                this.style.opacity = '0.5';
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
