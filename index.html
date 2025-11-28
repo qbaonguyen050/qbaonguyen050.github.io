@@ -1,1 +1,114 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Dyson Proof</title><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']]},chtml:{scale:1.2}};</script><script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap" rel="stylesheet"><style>:root{--i:#e0e0e0;--h:#ffd700;--g:rgba(20,20,25,0.4);--f:'Reenie Beanie',cursive}body,html{margin:0;padding:0;width:100%;height:100%;overflow:hidden;background-color:#050505;color:var(--i);font-family:var(--f)}#c{position:fixed;top:0;left:0;width:100%;height:100%;z-index:1}#m{position:absolute;top:0;left:0;width:100%;height:100%;z-index:10;overflow-y:auto;display:flex;justify-content:center;padding:50px 0 100px;scrollbar-width:thin;scrollbar-color:#555 transparent}.s{background:var(--g);backdrop-filter:blur(8px) contrast(1.1);-webkit-backdrop-filter:blur(8px);width:85%;max-width:1100px;padding:40px;border-radius:4px;border:1px solid rgba(255,255,255,0.1);box-shadow:0 10px 50px rgba(0,0,0,0.8);position:relative}h1{font-size:3rem;text-align:center;margin-bottom:10px;transform:rotate(-1deg);text-shadow:2px 2px 0 rgba(0,0,0,0.5)}.n{color:#aaa;font-size:1.5rem;margin-bottom:2rem;text-align:center;border-bottom:2px solid rgba(255,255,255,0.2);padding-bottom:10px}.mjx-chtml{font-size:115%!important;filter:contrast(1.2) brightness(1.1)}.mn{float:right;width:200px;color:#4db6ac;font-size:1.3rem;transform:rotate(2deg);margin-left:20px;border-left:1px solid #4db6ac;padding-left:10px}.eb{opacity:0;animation:if 3s ease-out forwards}@keyframes if{0%{opacity:0;transform:translateY(10px)}100%{opacity:1;transform:translateY(0)}}</style></head><body><canvas id="c"></canvas><div id="m"><div class="s"><h1>On the Stability of Stellar Encasement</h1><div class="n">Derivation regarding Type-II Civilization structures excluding rigid bodies.</div><div class="mn">Crucial!!<br>A rigid shell is unstable. We must use dynamic orbital momentum.</div><div class="eb">$$ \require{cancel} \begin{align} & \text{Define the Lagrangian } \mathcal{L} \text{ of the Mega-structure System } \mathcal{S}: \\ & \mathcal{L} = \sum_{i=1}^{N} \left( \frac{1}{2} m_i \dot{\mathbf{r}}_i^2 - V_{grav}(\mathbf{r}_i) \right) + \mathcal{L}_{control} + \mathcal{L}_{stress} \\ \\ & \text{1. The Instability Problem (Earnshaw's Theorem generalization):} \\ & \nabla^2 \Phi = 4\pi G \rho \implies \oint_{\partial \Omega} \mathbf{g} \cdot d\mathbf{a} = -4\pi G M_{\star} \\ & \text{If rigid shell, net force inside is zero } (\mathbf{F}_{net} = 0) \therefore \text{Drift is inevitable.} \\ & \text{Correction term needed: Active Support Flux } \mathbf{J}(\mathbf{r}, t). \\ \\ & \text{2. The Dynamic Support Tensor (The "Backing"):} \\ & \mathbf{T}^{\mu\nu}_{structure} = \rho u^\mu u^\nu + P (g^{\mu\nu} + u^\mu u^\nu) + \underbrace{\int \frac{d^3p}{E} p^\mu p^\nu f(x,p)}_{\text{Momentum Stream}} \\ \\ & \text{Condition for null-collapse (Shell does not crush star):} \\ & P_{magnetic} + P_{dynamic} > \frac{GM_{\star}\rho_{shell}}{R^2} \cdot h_{thick} \\ & \text{Let } \Psi \text{ be the stream function of the supporting mass-stream:} \\ & \nabla \times \mathbf{A}_{support} = \mu_0 \mathbf{J}_{mass} \implies B^2 / 2\mu_0 \approx \text{counter-pressure.} \\ \\ & \text{3. Energy Harvest Integration over } 4\pi \text{ steradians:} \\ & \eta \oint_{S^2} \mathcal{F}_{flux} \cdot d\mathbf{A} = \eta \int_0^{2\pi} \int_0^\pi \left( \frac{L_{\star}}{4\pi r^2} \right) r^2 \sin\theta d\theta d\phi \\ & = \eta L_{\star} \quad (\text{where } \eta \to 1 \text{ as } N \to \infty) \\ \\ & \text{4. The Lyapunov Stability Proof (Reinforcement against Drift):} \\ & \text{Let error state } \mathbf{e} = \mathbf{r}_{shell} - \mathbf{r}_{star}. \text{ Define Candidate Function } V(\mathbf{e}): \\ & V(\mathbf{e}) = \frac{1}{2} \mathbf{e}^T \mathbf{K}_p \mathbf{e} + \frac{1}{2} \dot{\mathbf{e}}^T \mathbf{K}_d \dot{\mathbf{e}} \\ & \text{Taking the derivative } \dot{V}(\mathbf{e}) \text{ along the trajectory:} \\ & \dot{V} = \dot{\mathbf{e}}^T \left( \mathbf{K}_p \mathbf{e} + \mathbf{K}_d \ddot{\mathbf{e}} \right) \\ & \text{By applying feedback control thrust } \mathbf{u}_{thruster} = - \mathbf{K}_p \mathbf{e} - \mathbf{K}_v \dot{\mathbf{e}} + \nabla \Phi_{grav} \\ & \implies \dot{V} = -\dot{\mathbf{e}}^T \mathbf{Q} \dot{\mathbf{e}} < 0 \quad \forall \mathbf{e} \neq 0 \\ \\ & \therefore \text{The system is Asymptotically Stable.} \\ \\ & \text{Final Existence Inequality:} \\ & \text{If } \exists \text{ material with } \frac{\sigma}{\rho} > c^2 \text{ (Impossible) } \lor \text{ Active Velocity } v_{stream} > \sqrt{\frac{GM}{R}} \\ & \text{Since } v_{stream} \text{ can approach } c \text{ via EM acceleration:} \\ & \boxed{ \mathcal{P}_{existence} = 1 \iff \text{Tech Level} \ge \text{Kardashev } 1.8 } \end{align} $$</div><div style="position:absolute;bottom:100px;right:80px;transform:rotate(-10deg);color:#ff6b6b;font-size:1.2rem">* Requires electro-magnetic<br>tethers, not steel!</div><p style="margin-top:50px;font-size:1.4rem;text-align:justify"><em>Conclusion:</em> While a static Newtonian shell is mechanically impossible, a hyper-dense swarm of statites supported by photon pressure and active mass-stream momentum exchange creates a virtual shell. The math holds. The energy is there. We simply lack the engineering scale.<br><br>- A.E. (Simulated)</p></div></div><script>const C=document.getElementById("c"),X=C.getContext("2d");let W,H,S=[],N=[],T=0,K=300,M=150;const R=()=>{W=innerWidth;H=innerHeight;C.width=W;C.height=H};window.addEventListener("resize",R);R();const P3=(x,y,z)=>{let f=400,s=f/(f+z);return{x:x*s+W/2,y:y*s+H/2,s:s}};class St{constructor(){this.i()}i(){this.x=(Math.random()-.5)*W*2;this.y=(Math.random()-.5)*H*2;this.z=Math.random()*800;this.s=Math.random()}u(){this.z-=.5;if(this.z<=0)this.z=800}d(){let p=P3(this.x,this.y,this.z);X.fillStyle=`rgba(200,200,255,${p.s})`;X.beginPath();X.arc(p.x,p.y,this.s*p.s*2,0,Math.PI*2);X.fill()}}class Nd{constructor(i){this.i=i;this.p=Math.acos(-1+(2*i)/M);this.t=Math.sqrt(M*Math.PI)*this.p;this.r=250}d(){let rx=T*.002,ry=T*.003,x=this.r*Math.sin(this.p)*Math.cos(this.t),y=this.r*Math.sin(this.p)*Math.sin(this.t),z=this.r*Math.cos(this.p),x1=x*Math.cos(ry)-z*Math.sin(ry),z1=x*Math.sin(ry)+z*Math.cos(ry),y2=y*Math.cos(rx)-z1*Math.sin(rx),z2=y*Math.sin(rx)+z1*Math.cos(rx),p=P3(x1,y2,z2+400);X.fillStyle="#ffd700";X.beginPath();X.arc(p.x,p.y,2*p.s,0,Math.PI*2);X.fill();if(Math.random()>.95){X.strokeStyle="rgba(255,215,0,0.1)";X.beginPath();X.moveTo(W/2,H/2);X.lineTo(p.x,p.y);X.stroke()}}}for(let i=0;i<K;i++)S.push(new St);for(let i=0;i<M;i++)N.push(new Nd(i));const A=()=>{X.clearRect(0,0,W,H);S.forEach(s=>{s.u();s.d()});let sp=P3(0,0,400),pl=Math.sin(T*.05)*5,g=X.createRadialGradient(sp.x,sp.y,10,sp.x,sp.y,60+pl);g.addColorStop(0,"#fff");g.addColorStop(.2,"#fcba03");g.addColorStop(1,"transparent");X.fillStyle=g;X.beginPath();X.arc(sp.x,sp.y,70,0,Math.PI*2);X.fill();N.forEach(n=>n.d());T++;requestAnimationFrame(A)};A();</script></body></html>
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>PROJECT_KARDASHEV_OMEGA</title><link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap" rel="stylesheet"><style>body{margin:0;overflow:hidden;background:#000;color:#c0c0c0;font-family:'Reenie Beanie',cursive;user-select:none}canvas{position:fixed;top:0;left:0;z-index:0}#_viewport{position:absolute;z-index:2;width:100%;height:100vh;overflow-y:scroll;scrollbar-width:none}#_viewport::-webkit-scrollbar{display:none}._doc{width:90%;max-width:1100px;margin:50px auto;background:rgba(5,5,8,0.8);backdrop-filter:blur(8px);border:1px solid #222;padding:50px;box-shadow:0 0 100px #000;transform:perspective(1000px) rotateX(1deg)}h1{color:#e6b800;text-align:center;font-size:3.5rem;margin-bottom:40px;text-decoration:underline double rgba(255,255,255,0.2)}.mjx-chtml{font-size:120%!important;filter:invert(0.1) contrast(1.2)}</style><script>window.MathJax={tex:{inlineMath:[['$','$']],displayMath:[['$$','$$']],tags:'ams'},startup:{typeset:false}};function _l(u){var d=document,s=d.createElement('script');s.src=u;s.async=true;d.head.appendChild(s)}_l('https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js');</script></head><body><canvas id="_bg"></canvas><div id="_viewport"><div class="_doc"><h1>DYSON-HARROP LIMIT PROOF</h1><div id="_payload"></div></div></div><script>
+var _0x1a=["_bg","getContext","2d","innerWidth","innerHeight","width","height","fillStyle","#000","fillRect","createRadialGradient","addColorStop","beginPath","arc","fill","strokeStyle","lineWidth","stroke","moveTo","lineTo","innerHTML","typesetPromise"];
+var _c=document.getElementById(_0x1a[0]),_x=_c[_0x1a[1]](_0x1a[2]);
+var _w,_h,_mx=0,_my=0,_fx=0,_fy=0,_tick=0;
+var _junkData=[0x45,0x99,0xAA,0xFF,0x00,0x12]; // Dead string
+const _EQ = `$$ \\require{cancel} \\begin{align} 
+& \\textbf{I. Topological Manifold Definition} \\\\
+& \\text{Let } \\mathcal{M} \\text{ be a pseudo-Riemannian manifold with metric } g_{\\mu\\nu} \\text{ of signature } (-+++). \\\\
+& \\mathcal{S}_{action} = \\int_{\\mathcal{M}} d^4x \\sqrt{-g} \\left( \\frac{R - 2\\Lambda}{16\\pi G} + \\mathcal{L}_{matter} + \\mathcal{L}_{Maxwell} + \\mathcal{L}_{structure} \\right) \\\\
+& \\text{Where } \\mathcal{L}_{structure} \\text{ represents the hyper-tensile active support stream.} \\\\
+\\\\
+& \\textbf{II. The Stress-Energy Tensor of the Swarm} \\\\
+& T^{\\mu\\nu}_{swarm} = \\sum_{n=1}^{\\infty} \\int d\\tau_n \\, m_n \\, u_n^\\mu u_n^\\nu \\, \\delta^{(4)}(x - x_n(\\tau)) \\; + \\; \\frac{1}{\\mu_0} \\left( F^{\\mu \\alpha} F^\\nu_{\\ \\ \\alpha} - \\frac{1}{4} g^{\\mu\\nu} F_{\\alpha\\beta} F^{\\alpha\\beta} \\right) \\\\
+& \\text{Conservation Law: } \\nabla_\\mu T^{\\mu\\nu}_{total} = 0 \\implies \\partial_\\mu T^{\\mu\\nu} + \\Gamma^\\mu_{\\alpha\\beta} T^{\\alpha\\beta} + \\Gamma^\\nu_{\\alpha\\beta} T^{\\mu\\alpha} = 0 \\\\
+\\\\
+& \\textbf{III. The Orbital Stability Criterion (The Virial Limit)} \\\\
+& \\text{For a non-rigid collection of } N \\to \\infty \\text{ elements:} \\\\
+& \\frac{d^2 I}{dt^2} = 2T + \\Omega_{grav} + \\Omega_{mag} + \\oint_{\\partial V} (\\mathbf{r} \\cdot \\mathbf{P}) \\cdot d\\mathbf{a} \\\\
+& \\text{Expanding the gravitational potential } \\Phi(\\mathbf{r}) \\text{ in Spherical Harmonics:} \\\\
+& \\Phi(r,\\theta,\\phi) = -\\frac{GM}{r} \\sum_{l=0}^\\infty \\sum_{m=-l}^l \\left( \\frac{R_{ref}}{r} \\right)^l P_{lm}(\\cos\\theta) (A_{lm} \\cos(m\\phi) + B_{lm} \\sin(m\\phi)) \\\\
+& \\text{Condition for Non-Collapse (Statite Solution): } \\\\
+& \\mathbf{F}_{net} = -\\nabla \\Phi + \\frac{\\mathbf{S} \\cdot \\mathbf{n}}{c} (1+\\alpha) \\hat{r} + (\\mathbf{J}_{stream} \\times \\mathbf{B}_{conf}) = \\mathbf{0} \\\\
+\\\\
+& \\textbf{IV. The Active Support Stress Tensor (The "Impossible" Material)} \\\\
+& \\sigma_{ij}^{eff} = \\rho v_i v_j + P \\delta_{ij} - \\frac{1}{\\mu_0} \\left( B_i B_j - \\frac{1}{2} B^2 \\delta_{ij} \\right) \\\\
+& \\text{If } v_{stream} \\to c, \\text{ relativistic mass dilation } \\gamma = (1 - v^2/c^2)^{-1/2} \\text{ yields:} \\\\
+& \\lim_{v \\to c} \\sigma_{active} \\approx \\gamma^2 \\rho_0 v^2 \\gg \\frac{GM^2}{R^4} \\quad (\\text{Tensile requirements satisfied}) \\\\
+\\\\
+& \\textbf{V. Thermodynamic Entropy Flux} \\\\
+& \\dot{S}_{gen} = \\oint_{\\partial \\mathcal{V}} \\frac{\\mathbf{q} \\cdot \\mathbf{n}}{T} dA \\ge 0 \\\\
+& T_{shell} = \\left( \\frac{L_{\\star} (1-\\eta)}{4\\pi \\sigma_{SB} R^2 \\epsilon} \\right)^{1/4} \\\\
+& \\text{Integration of total captured luminosity } \\Psi: \\\\
+& \\Psi = \\int_{0}^{\\infty} \\int_{4\\pi} I_\\nu (\\Omega) \\cos\\theta \\, d\\Omega \\, d\\nu \\approx L_{\\star} \\\\
+\\\\
+& \\textbf{VI. Final Existence Proof via Fixed Point Theorem} \\\\
+& \\text{Define the operator } \\mathcal{T}[\\rho(\\mathbf{r})] \\text{ acting on the swarm density field.} \\\\
+& \\text{If } \\mathcal{T} \\text{ is a contraction mapping in the Banach space of orbital configurations:} \\\\
+& || \\mathcal{T}[\\rho_1] - \\mathcal{T}[\\rho_2] || \\le k || \\rho_1 - \\rho_2 ||, \\quad 0 \\le k < 1 \\\\
+& \\implies \\exists ! \\, \\rho^* \\text{ such that } \\mathcal{T}[\\rho^*] = \\rho^* \\quad (\\text{Stable Dyson Configuration Exists}) \\\\
+\\\\
+& \\therefore \\boxed{ \\mathcal{P}(\\exists \\text{ Dyson Sphere}) = 1 } \\\\
+\\end{align} $$`;
+
+// INJECT PAYLOAD
+document.getElementById("_payload")[_0x1a[20]]=_EQ;
+
+// RESIZE ENGINE
+function _rs(){_w=window[_0x1a[3]];_h=window[_0x1a[4]];_c[_0x1a[5]]=_w;_c[_0x1a[6]]=_h}
+window.addEventListener("resize",_rs);_rs();
+
+// DEAD CODE
+function _d(_z){return Math.sqrt(_z*_z+1)} 
+
+// VISUAL LOGIC
+var _N=500,_nodes=[],_L=150;
+for(var i=0;i<_N;i++){
+    var th=Math.acos(2*Math.random()-1);
+    var ph=2*Math.PI*Math.random();
+    var rad=250+Math.random()*40;
+    _nodes.push({x:rad*Math.sin(th)*Math.cos(ph),y:rad*Math.sin(th)*Math.sin(ph),z:rad*Math.cos(th),o:Math.random()});
+}
+window.onmousemove=function(e){_fx=(e.clientX-_w/2)*0.0002;_fy=(e.clientY-_h/2)*0.0002};
+
+function _anim(){
+    _mx+=(_fx-_mx)*0.05;_my+=(_fy-_my)*0.05;_tick++;
+    _x[_0x1a[7]]=_0x1a[8];_x[_0x1a[9]](0,0,_w,_h);
+    
+    var cx=_w/2,cy=_h/2;
+    // STAR RENDER
+    var g=_x[_0x1a[10]](cx,cy,10,cx,cy,120+Math.sin(_tick*0.05)*15);
+    g[_0x1a[11]](0,"#fff");g[_0x1a[11]](0.15,"#ffcc00");g[_0x1a[11]](1,"transparent");
+    _x[_0x1a[7]]=g;_x[_0x1a[12]]();_x[_0x1a[13]](cx,cy,160,0,6.28);_x[_0x1a[14]]();
+
+    // MATRIX ROTATION
+    var cy_=_Math_cos(_mx),sy_=_Math_sin(_mx),cx_=_Math_cos(_my),sx_=_Math_sin(_my);
+    var drawQ=[];
+    for(var i=0;i<_N;i++){
+        var p=_nodes[i];
+        var x1=p.x*cy_-p.z*sy_, z1=p.x*sy_+p.z*cy_;
+        var y2=p.y*cx_-z1*sx_, z2=p.y*sx_+z1*cx_;
+        var sc=500/(500+z2);
+        if(z2>-400) drawQ.push({x:cx+x1*sc,y:cy+y2*sc,s:sc,z:z2});
+    }
+    drawQ.sort(function(a,b){return b.z-a.z});
+
+    // DRAW NODES
+    for(var i=0;i<drawQ.length;i++){
+        var p=drawQ[i];
+        _x[_0x1a[7]]="rgba(0,255,255,"+p.s+")";
+        _x[_0x1a[12]]();_x[_0x1a[13]](p.x,p.y,1.5*p.s,0,6.28);_x[_0x1a[14]]();
+        
+        // DRAW LINKS
+        if(i%4==0){
+             for(var j=i+1;j<Math.min(i+6,drawQ.length);j++){
+                 var p2=drawQ[j];
+                 var d=Math.sqrt(Math.pow(p.x-p2.x,2)+Math.pow(p.y-p2.y,2));
+                 if(d<60*p.s){
+                     _x[_0x1a[15]]="rgba(0,255,255,"+(0.15*p.s)+")";
+                     _x[_0x1a[16]]=0.5*p.s;
+                     _x[_0x1a[12]]();_x[_0x1a[18]](p.x,p.y);_x[_0x1a[19]](p2.x,p2.y);_x[_0x1a[17]]();
+                 }
+             }
+        }
+    }
+    requestAnimationFrame(_anim);
+}
+// HELPERS
+function _Math_cos(v){return Math.cos(v)}
+function _Math_sin(v){return Math.sin(v)}
+
+_anim();
+// DELAYED MATH RENDER
+setTimeout(function(){if(window.MathJax)MathJax.typesetPromise()},1000);
+</script></body></html>
